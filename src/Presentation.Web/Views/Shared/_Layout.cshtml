@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - NDriven</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @Styles.Render("~/Content/boot")
+        @Styles.Render("~/Content/css")
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="brand">NDriven</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right">
+                            <li>@Html.ActionLink("Login", "LogIn", "User")</li>
+                            <li>@Html.ActionLink("Register", "Register", "User")</li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li>@Html.ActionLink("Sign Out", "LogOut", "User")</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            @RenderBody()
+        </div>
+        
+        <footer class="container">
+            <p>MyCo &copy; 2013</p>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

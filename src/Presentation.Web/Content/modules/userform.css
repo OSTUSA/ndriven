@@ -1,0 +1,10 @@
+﻿.userform {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.userform.userform-center {
+    margin-left:auto;
+    margin-right: auto;
+    float: none;
+}
