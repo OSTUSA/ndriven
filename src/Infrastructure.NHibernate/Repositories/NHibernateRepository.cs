@@ -40,9 +40,7 @@ namespace Infrastructure.NHibernate.Repositories
 
         public virtual T FindOneBy(Func<T, bool> condition)
         {
-            return Session.Query<T>()
-                    .Where(condition)
-                    .FirstOrDefault();
+            return Session.Query<T>().FirstOrDefault(condition);
         }
 
         public virtual void Store(T entity)
