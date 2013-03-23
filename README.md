@@ -13,15 +13,12 @@ After cloning, the project will have the following directories:
 .nuget
 bin
 lib
-packages
 src
 ```
 
 The `bin` directory contains a packaged `Migrate.exe` executable for handling migrations via [FluentMigrator](https://github.com/schambers/fluentmigrator).
 
 The `lib` directory contains any depdendencies not handled by NuGet. It is packaged with the FluentMigrator.Runner.dll as it is a dependency of the Infrastructure.Migrations project, as well as the Test.Integration project.
-
-The `packages` directory is where NuGet puts it's business.
 
 src
 ---
