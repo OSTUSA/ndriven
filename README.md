@@ -45,7 +45,7 @@ In addition to migrations and profiles, this project contains a runner for execu
 ###Infrastructure.NHibernate###
 This contains everything needed to get started with the [NHibernate ORM](http://nhforge.org/). This project contains a `SessionFactoryBuilder` capable of creating session factories in a thread safe matter.
 
-The one repository include implements the generic `IRepository` interface and covers most use cases.
+The one repository included implements the generic `IRepository` interface and covers most use cases.
 
 ###Presentation.Web###
 NDriven contains an MVC presentation layer out of the box. The only infrastructure project it relies on is Infrastructure.IoC.
@@ -63,6 +63,9 @@ All unit tests are included here
 NHibernate repository tests
 
 App.config contains the connection string used for testing.
+
+Take a look at the [DatabaseTestState](https://github.com/OSTUSA/ndriven/blob/master/src/Test.Integration/DatabaseTestState.cs) to see how a consistent test state is maintained in tests that use
+the database. This class is also useful for loading profile data.
 
 ###Test.UI.Web.Features###
 SpecFlow tests coupled with WebDriver for high level acceptance tests.
