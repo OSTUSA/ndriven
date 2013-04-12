@@ -1,3 +1,4 @@
+using System.Web.Http;
 using Infrastructure.IoC.NHibernate;
 using Presentation.Web.Services;
 
@@ -47,6 +48,9 @@ namespace Presentation.Web.App_Start
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
             
             RegisterServices(kernel);
+
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+
             return kernel;
         }
 
