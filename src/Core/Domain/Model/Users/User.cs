@@ -2,9 +2,6 @@
 
 namespace Core.Domain.Model.Users
 {
-    /// <summary>
-    /// Represents a Pomodoro user
-    /// </summary>
     public class User : EntityBase<User>
     {
         public virtual string Email { get; set; }
