@@ -37,6 +37,7 @@ namespace Test.UI.Web.Features.Contexts
         public void InitScenario()
         {
             Driver = new FirefoxDriver();
+            Driver.Manage().Window.Maximize();
             BaseUrl = "http://localhost:50522";
         }
 
