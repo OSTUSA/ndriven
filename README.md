@@ -1,6 +1,7 @@
 NDriven
 =======
-A baseline for domain driven .NET applications.  The easiest way to start is to leverage the NDriven CLI (https://github.com/OSTUSA/ndriven-cli) to create a baseline project.
+A baseline for domain driven .NET applications.  The easiest way to start is to leverage the 
+NDriven CLI (https://github.com/OSTUSA/ndriven-cli) to create a baseline project. Check out OST Todos (https://github.com/OSTUSA/ost-todos) for a fully functional reference example.
 
 Project Structure
 -----------------
