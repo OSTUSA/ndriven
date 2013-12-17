@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using Core.Domain.Model;
 using NHibernate;
 using NHibernate.Linq;
@@ -27,29 +26,21 @@ namespace Infrastructure.NHibernate.Repositories
             return Session.Load<T>(id);
         }
 
-        public virtual IEnumerable<T> GetAll()
+        public virtual List<T> GetAll()
         {
-            return Query().AsEnumerable();
+            return Session.Query<T>().ToList();
         }
 
-        public virtual IEnumerable<T> FindBy(Expression<Func<T, bool>> condition)
+        public virtual List<T> FindBy(Func<T, bool> condition)
         {
-            return Query(condition).AsEnumerable();
+            return Session.Query<T>()
+                    .Where(condition)
+                    .ToList();
         }
 
         public virtual T FindOneBy(Func<T, bool> condition)
         {
-            return Query().FirstOrDefault(condition);
-        }
-
-        public virtual IQueryable<T> Query()
-        {
-            return Session.Query<T>();
-        }
-
-        public virtual IQueryable<T> Query(Expression<Func<T, bool>> condition)
-        {
-            return Session.Query<T>().Where(condition);
+            return Session.Query<T>().FirstOrDefault(condition);
         }
 
         public virtual void Store(T entity)

@@ -1,0 +1,476 @@
+'use strict';
+
+app.factory('PartnerSVC', function ($resource, $http) {
+    return {
+        //this should be used once the data base is up
+        partners: $resource("/api/partners", {}, {
+            getData: { method: 'GET', isArray: true }
+        }),
+
+        partner: $resource('/api/partners/:partnerId', {}, {
+            getData: {
+                method: 'GET',
+                params: { partnerId: '@id' }
+            },
+            post: {
+                method: 'POST',
+                params: { partnerId: '@id' },
+                data: {
+                    LastName: '@LastName',
+                    FirstName: '@FirstName',
+                    SSN: '@SSN',
+                },
+                isArray: false
+            },
+        }),
+
+        partnerAddresses: $resource('/api/partners/:partnerId/addresses',
+            { partnerId: '@id' },
+            {
+                getData: {
+                    method: 'GET', isArray: true
+                }
+            }),
+
+        partnerOffices: $resource('/api/offices/:partnerId/history',
+            { partnerId: '@id' },
+            {
+                getData: {
+                    method: 'GET', isArray: true
+                }
+            }),
+
+        partnerSsn: $resource('/api/partners/:partnerId/ssn',
+            { partnerId: '@id' },
+            {
+                getData: {
+                    method: 'GET'
+                }
+            }),
+    };
+});
+
+app.factory('RemindersSVC', function ($resource, $http) {
+    return {
+        reminders: $resource("/api/reminders",
+            {}, {
+                getData: { method: 'GET' }
+            }),
+
+        partnerReminders: $resource("api/reminders/partner/:partnerId/", {}, {
+            getData: {
+                method: 'GET',
+                params: { partnerId: '@int' }
+            },
+            post: {
+                method: 'POST',
+                params: { partnerId: '@id' },
+                data: {
+                    Text: '@Text',
+                    Date: '@Date',
+                },
+                isArray: false
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    partnerId: '@partnerId',
+                    ReminderId: '@ReminderId'
+                },
+                data: {
+                    Text: '@Text',
+                    Date: '@Date',
+                },
+                isArray: false
+            },
+            remove: {
+                method: 'DELETE',
+                params: {
+                    partnerId: '@partnerId',
+                    ReminderId: '@ReminderId'
+                },
+                isArray: true
+            }
+        })
+    };
+});
+
+app.factory('ClubsSVC', function ($resource, $http) {
+    return {
+        clubs: $resource("/api/clubs", {}, {
+            getData: { method: 'GET', isArray: true }
+        }),
+
+        partnerClubs: $resource('/api/clubs/:partnerId/', {}, {
+            getData: {
+                method: 'GET',
+                params: { partnerId: '@id' }
+            },
+            post: {
+                method: 'POST',
+                params: { partnerId: '@id' },
+                data: {
+                    ClubName: '@ClubName',
+                    Amount: '@Amount',
+                    ClubNotes: '@ClubNotes',
+                },
+                isArray: false
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    partnerId: '@partnerId',
+                    ClubId: '@ClubId'
+                },
+                data: {
+                    ClubName: '@ClubName',
+                    Amount: '@Amount',
+                    ClubNotes: '@ClubNotes',
+                },
+                isArray: false
+            },
+            remove: {
+                method: 'DELETE',
+                params: {
+                    partnerId: '@partnerId',
+                    ClubId: '@ClubId'
+                },
+                isArray: true
+            }
+        }),
+
+    };
+});
+
+app.factory('LoansSVC', function ($resource, $http) {
+    return {
+        loans: $resource("/api/loans", {}, {
+            getData: { method: 'GET', isArray: true }
+        }),
+
+        loanTypes: $resource("/api/loans/types", {}, {
+            getData: { method: 'GET', isArray: true }
+        }),
+
+        partnerLoans: $resource('/api/loans/:partnerId/', {}, {
+            getData: {
+                method: 'GET',
+                params: { partnerId: '@id' }
+            },
+            post: {
+                method: 'POST',
+                params: { partnerId: '@id' },
+                data: {
+                    StartDate: '@StartDate',
+                    FinalPaymentDate: '@FinalPaymentDate',
+                    Type: '@Type',
+                    OriginalAmount: '@OriginalAmount',
+                    Terms: '@Terms',
+                },
+                isArray: false
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    partnerId: '@partnerId',
+                    LoanId: '@LoanId'
+                },
+                data: {
+                    StartDate: '@StartDate',
+                    FinalPaymentDate: '@FinalPaymentDate',
+                    Type: '@Type',
+                    OriginalAmount: '@OriginalAmount',
+                    Terms: '@Terms',
+                },
+                isArray: false
+            },
+            remove: {
+                method: 'DELETE',
+                params: {
+                    partnerId: '@partnerId',
+                    LoanId: '@LoanId'
+                },
+                isArray: true
+            }
+        }),
+
+    };
+});
+
+app.factory('NotesSVC', function ($resource, $http) {
+    return {
+        notes: $resource("/api/notes", {}, {
+            getData: { method: 'GET', isArray: true }
+        }),
+        noteTypes: $resource("/api/notetypes/:partnerId/", {}, {
+            getData: { method: 'GET', isArray: true }
+        }),
+
+        partnerNotes: $resource('/api/notes/:partnerId/', {}, {
+            getData: {
+                method: 'GET',
+                params: { partnerId: '@id' }
+            },
+            post: {
+                method: 'POST',
+                params: { partnerId: '@id' },
+                data: {
+                    NoteDate: '@NoteDate',
+                    NoteType: '@NoteType',
+                    Note: '@Note',
+                },
+                isArray: false
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    partnerId: '@partnerId',
+                    NoteId: '@NoteId'
+                },
+                data: {
+                    NoteDate: '@NoteDate',
+                    NoteType: '@NoteType',
+                    Note: '@Note',
+                },
+                isArray: false
+            },
+            remove: {
+                method: 'DELETE',
+                params: {
+                    partnerId: '@partnerId',
+                    NoteId: '@NoteId'
+                },
+                isArray: true
+            }
+        })
+
+    };
+});
+app.factory('UnitsSVC', function ($resource, $http) {
+    return {
+        units: $resource("/api/units", {}, {
+            getData: { method: 'GET', isArray: true }
+        }),
+
+        unitReasons: $resource("/api/units/reasons", {}, {
+            getData: { method: 'GET', isArray: true }
+        }),
+
+        partnerUnits: $resource('/api/units/:partnerId/', {}, {
+            getData: {
+                method: 'GET',
+                params: { partnerId: '@id' }
+            },
+            post: {
+                method: 'POST',
+                params: { partnerId: '@id' },
+                data: {
+                    Date: '@Date',
+                    Increase: '@Increase',
+                    Reason: '@Reason',
+                    Units: '@Units',
+                    Source: '@Source',
+                    Notes: '@Notes',
+                },
+                isArray: false
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    partnerId: '@partnerId',
+                    UnitId: '@UnitId'
+                },
+                data: {
+                    Date: '@Date',
+                    Increase: '@Increase',
+                    Reason: '@Reason',
+                    Units: '@Units',
+                    Source: '@Source',
+                    Notes: '@Notes',
+                },
+                isArray: false
+            },
+            remove: {
+                method: 'DELETE',
+                params: {
+                    partnerId: '@partnerId',
+                    UnitId: '@UnitId'
+                },
+                isArray: true
+            }
+        }),
+
+    };
+});
+<<<<<<< HEAD
+
+app.factory('AdminSVC', function ($resource, $http) {
+
+
+=======
+app.factory('UnitsEarningSVC', function ($resource, $http) {
+    return {
+        partnerUnitsEarning: $resource('/api/unitsEarning/:partnerId/', {}, {
+            getData: {
+                method: 'GET',
+                params: { partnerId: '@id' }
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    partnerId: '@partnerId',
+                },
+                data: {
+                    FixedIncome: '@FixedIncome',
+                    MonthlyDraw: '@MonthlyDraw',
+                    AdditionalMonthlyPayment: '@AdditionalMonthlyPayment',
+                    Guarantees: '@Guarantees',
+                },
+                isArray: false
+            },
+        }),
+        partnerUnitsEarningGuarantees: $resource('/api/unitsEarning/guarantees/:partnerId/', {}, {
+            post: {
+                method: 'POST',
+                params: { partnerId: '@partnerId' },
+                data: {
+                    Date: '@Date',
+                    Amount: '@Amount',
+                    Description: '@Description',
+                },
+                isArray: false
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    partnerId: '@partnerId',
+                    GuaranteeId: '@GuaranteeId'
+                },
+                data: {
+                    Date: '@Date',
+                    Amount: '@Amount',
+                    Description: '@Description',
+                },
+                isArray: false
+            },
+            remove: {
+                method: 'DELETE',
+                params: {
+                    partnerId: '@partnerId',
+                    GuaranteeId: '@GuaranteeId'
+                },
+                isArray: true
+            }
+        }),
+    };
+>>>>>>> f07758cfa50d366b8681e43b8eee52e110c95bf7
+});
+app.factory('RetirementsSVC', function ($resource, $http) {
+    return {
+        retirements: $resource("/api/retirements", {}, {
+            getData: { method: 'GET', isArray: true }
+        })
+    };
+});
+
+app.factory('AccountSummarySVC', function($resource, $http){
+    return {
+
+        summary: $resource("api/accountsummary/partner/:partnerId/", {}, {
+            getData: {
+                method: 'GET',
+                params: { partnerId: '@int' }
+            },
+            post: {
+                method: 'POST',
+                params: { partnerId: '@id' },
+                data: {
+                    Text: '@Text',
+                    Date: '@Date',
+                },
+                isArray: false
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    partnerId: '@partnerId',
+                    ReminderId: '@ReminderId'
+                },
+                data: {
+                    Text: '@Text',
+                    Date: '@Date',
+                },
+                isArray: false
+            },
+            remove: {
+                method: 'DELETE',
+                params: {
+                    partnerId: '@partnerId',
+                    ReminderId: '@ReminderId'
+                },
+                isArray: true
+            }
+        })
+    }
+
+
+});
+app.factory('AccountHistorySVC', function ($resource, $http) {
+    return {
+        history: $resource("api/accounthistory/partner/:partnerId/", {}, {
+            getData: {
+                method: 'GET',
+                params: { partnerId: '@int' }
+            },
+            post: {
+                method: 'POST',
+                params: { partnerId: '@id' },
+                data: {
+                    Text: '@Text',
+                    Date: '@Date',
+                },
+                isArray: false
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    partnerId: '@partnerId',
+                    ReminderId: '@ReminderId'
+                },
+                data: {
+                    Text: '@Text',
+                    Date: '@Date',
+                },
+                isArray: false
+            },
+            remove: {
+                method: 'DELETE',
+                params: {
+                    partnerId: '@partnerId',
+                    ReminderId: '@ReminderId'
+                },
+                isArray: true
+            }
+        })
+    }
+});
+
+
+
+app.factory('AccountsSVC', function ($resource, $http) {
+    return {
+        accounts: $resource("/api/accounts", {}, {
+            getData: { method: 'GET', isArray: true }
+        })
+    }
+});
+
+app.factory('ChecklistsSVC', function ($resource, $http) {
+    return {
+        checklists: $resource("/api/checklists", {}, {
+            getData: { method: 'GET', isArray: true }
+        })
+    }
+});
+
+

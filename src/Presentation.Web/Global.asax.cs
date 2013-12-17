@@ -4,6 +4,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Core.Application.Services;
 
+
 namespace Presentation.Web
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -14,13 +15,13 @@ namespace Presentation.Web
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             DependencyResolver.Current.GetService<IPersistenceSetup>().Setup();
+
         }
 
     }

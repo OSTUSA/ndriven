@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Services.Description;
 using Core.Domain.Model;
 using CoreUsers = Core.Domain.Model.Users;
 using Ninject;
@@ -10,12 +11,13 @@ namespace Presentation.Web.Validation.User
         [Inject]
         public override IRepository<CoreUsers.User> Repo { get; set; }
 
-        public UniqueEmailAttribute(string message = "") : base(message)
+        public UniqueEmailAttribute(string message = "")
+            : base(message)
         {
-            
+
         }
 
-        public UniqueEmailAttribute() : 
+        public UniqueEmailAttribute() :
             this("This email address is already in use.")
         {
 
@@ -28,13 +30,10 @@ namespace Presentation.Web.Validation.User
 
         protected ValidationResult GetValidationResult(string email)
         {
-            if (string.IsNullOrEmpty(email)) return null;
-
             var user = Repo.FindOneBy(u => u.Email == email);
             if (user != null)
                 return new ValidationResult(Message);
-
             return null;
         }
-    }
+        }
 }

@@ -1,0 +1,193 @@
+﻿{
+    "id": 1,
+    "jsonrpc": "2.0",
+    "total": 6,
+    "result": [
+        {
+            "id": 0,
+            "isActive": false,
+            "account": 7557,
+            "description": "aliquip magna",
+            "monthtodatebalance": "$2,425.00",
+            "lifetodatebalance": "$2,237.00",
+            "subaccounts": [
+                {
+                    "account": 899132,
+                    "description": "voluptate aute",
+                    "monthtodatebalance": "$2,224.00",
+                    "yeartodatebalance": "$3,487.00",
+                    "lifetodatebalance": "$3,253.00"
+                },
+                {
+                    "account": 397519,
+                    "description": "enim anim",
+                    "monthtodatebalance": "$1,408.00",
+                    "yeartodatebalance": "$1,679.00",
+                    "lifetodatebalance": "$1,896.00"
+                },
+                {
+                    "account": 183668,
+                    "description": "dolore occaecat",
+                    "monthtodatebalance": "$2,627.00",
+                    "yeartodatebalance": "$2,798.00",
+                    "lifetodatebalance": "$2,446.00"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "isActive": false,
+            "account": 2007,
+            "description": "nisi ullamco",
+            "monthtodatebalance": "$2,930.00",
+            "lifetodatebalance": "$3,923.00",
+            "subaccounts": [
+                {
+                    "account": 399084,
+                    "description": "aute enim",
+                    "monthtodatebalance": "$1,183.00",
+                    "yeartodatebalance": "$2,107.00",
+                    "lifetodatebalance": "$1,156.00"
+                },
+                {
+                    "account": 900631,
+                    "description": "non cillum",
+                    "monthtodatebalance": "$3,011.00",
+                    "yeartodatebalance": "$2,010.00",
+                    "lifetodatebalance": "$2,111.00"
+                },
+                {
+                    "account": 638686,
+                    "description": "tempor exercitation",
+                    "monthtodatebalance": "$1,788.00",
+                    "yeartodatebalance": "$2,087.00",
+                    "lifetodatebalance": "$2,970.00"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "isActive": false,
+            "account": 6393,
+            "description": "magna duis",
+            "monthtodatebalance": "$1,039.00",
+            "lifetodatebalance": "$1,933.00",
+            "subaccounts": [
+                {
+                    "account": 284744,
+                    "description": "elit in",
+                    "monthtodatebalance": "$3,382.00",
+                    "yeartodatebalance": "$2,037.00",
+                    "lifetodatebalance": "$2,695.00"
+                },
+                {
+                    "account": 984231,
+                    "description": "dolore ut",
+                    "monthtodatebalance": "$1,125.00",
+                    "yeartodatebalance": "$2,982.00",
+                    "lifetodatebalance": "$2,826.00"
+                },
+                {
+                    "account": 637915,
+                    "description": "ullamco laboris",
+                    "monthtodatebalance": "$3,347.00",
+                    "yeartodatebalance": "$2,444.00",
+                    "lifetodatebalance": "$2,955.00"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "isActive": true,
+            "account": 3945,
+            "description": "nisi excepteur",
+            "monthtodatebalance": "$1,512.00",
+            "lifetodatebalance": "$3,855.00",
+            "subaccounts": [
+                {
+                    "account": 191472,
+                    "description": "adipisicing elit",
+                    "monthtodatebalance": "$2,048.00",
+                    "yeartodatebalance": "$3,871.00",
+                    "lifetodatebalance": "$3,364.00"
+                },
+                {
+                    "account": 606081,
+                    "description": "consequat consequat",
+                    "monthtodatebalance": "$3,735.00",
+                    "yeartodatebalance": "$3,592.00",
+                    "lifetodatebalance": "$2,114.00"
+                },
+                {
+                    "account": 609522,
+                    "description": "veniam laboris",
+                    "monthtodatebalance": "$3,481.00",
+                    "yeartodatebalance": "$1,402.00",
+                    "lifetodatebalance": "$3,095.00"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "isActive": false,
+            "account": 5247,
+            "description": "in duis",
+            "monthtodatebalance": "$2,608.00",
+            "lifetodatebalance": "$1,947.00",
+            "subaccounts": [
+                {
+                    "account": 158705,
+                    "description": "nostrud proident",
+                    "monthtodatebalance": "$1,972.00",
+                    "yeartodatebalance": "$1,644.00",
+                    "lifetodatebalance": "$3,944.00"
+                },
+                {
+                    "account": 485971,
+                    "description": "ut sit",
+                    "monthtodatebalance": "$3,410.00",
+                    "yeartodatebalance": "$2,921.00",
+                    "lifetodatebalance": "$3,047.00"
+                },
+                {
+                    "account": 693836,
+                    "description": "ipsum magna",
+                    "monthtodatebalance": "$2,232.00",
+                    "yeartodatebalance": "$1,511.00",
+                    "lifetodatebalance": "$1,613.00"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "isActive": true,
+            "account": 9474,
+            "description": "esse ipsum",
+            "monthtodatebalance": "$1,339.00",
+            "lifetodatebalance": "$3,035.00",
+            "subaccounts": [
+                {
+                    "account": 408695,
+                    "description": "esse esse",
+                    "monthtodatebalance": "$1,918.00",
+                    "yeartodatebalance": "$3,905.00",
+                    "lifetodatebalance": "$1,735.00"
+                },
+                {
+                    "account": 704436,
+                    "description": "est anim",
+                    "monthtodatebalance": "$2,589.00",
+                    "yeartodatebalance": "$1,105.00",
+                    "lifetodatebalance": "$1,073.00"
+                },
+                {
+                    "account": 509502,
+                    "description": "ad officia",
+                    "monthtodatebalance": "$3,145.00",
+                    "yeartodatebalance": "$2,059.00",
+                    "lifetodatebalance": "$1,781.00"
+                }
+            ]
+        }
+    ]
+}

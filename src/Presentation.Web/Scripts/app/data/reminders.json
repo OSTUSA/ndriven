@@ -1,0 +1,119 @@
+﻿{
+    "id": 1,
+    "jsonrpc": "2.0",
+    "total": 14,
+    "result": [
+        {
+            "id": 0,
+            "partnerid": 0,
+            "partnerfirst": "Ashley",
+            "partnerlast": "Simpson",
+            "date": "11/13/1988",
+            "text": "Excepteur nisi mollit est et excepteur nisi non adipisicing qui nostrud sint adipisicing anim."
+        },
+        {
+            "id": 1,
+            "partnerid": 1,
+            "partnerfirst": "Roman",
+            "partnerlast": "Mccoy",
+            "date": "5/29/2001",
+            "text": "Irure quis eu cillum reprehenderit fugiat eiusmod."
+        },
+        {
+            "id": 2,
+            "partnerid": 2,
+            "partnerfirst": "Cook",
+            "partnerlast": "Strickland",
+            "date": "9/19/2001",
+            "text": "Ex nostrud ut commodo pariatur ad mollit minim aliqua ipsum non anim tempor."
+        },
+        {
+            "id": 3,
+            "partnerid": 3,
+            "partnerfirst": "Stacey",
+            "partnerlast": "Ewing",
+            "date": "12/24/2005",
+            "text": "Enim aliqua minim voluptate anim."
+        },
+        {
+            "id": 4,
+            "partnerid": 4,
+            "partnerfirst": "Raymond",
+            "partnerlast": "Kaufman",
+            "date": "10/13/1994",
+            "text": "Do amet enim eu culpa nostrud ad mollit magna culpa tempor nostrud amet ad dolor."
+        },
+        {
+            "id": 5,
+            "partnerid": 5,
+            "partnerfirst": "Lela",
+            "partnerlast": "Oneill",
+            "date": "9/4/1995",
+            "text": "Minim nostrud ipsum non ut tempor quis qui amet."
+        },
+        {
+            "id": 6,
+            "partnerid": 6,
+            "partnerfirst": "Bentley",
+            "partnerlast": "Gilmore",
+            "date": "12/10/2004",
+            "text": "In tempor fugiat culpa proident aliqua officia voluptate id id."
+        },
+        {
+            "id": 7,
+            "partnerid": 7,
+            "partnerfirst": "Catalina",
+            "partnerlast": "Franco",
+            "date": "7/2/1999",
+            "text": "Eiusmod sint amet do cupidatat commodo duis anim nostrud occaecat eiusmod ad."
+        },
+        {
+            "id": 8,
+            "partnerid": 8,
+            "partnerfirst": "Cervantes",
+            "partnerlast": "Glover",
+            "date": "12/19/2002",
+            "text": "Do elit Lorem pariatur incididunt aliqua ipsum irure eiusmod et proident ex."
+        },
+        {
+            "id": 9,
+            "partnerid": 9,
+            "partnerfirst": "Fields",
+            "partnerlast": "Sullivan",
+            "date": "8/30/2002",
+            "text": "Non excepteur consectetur id deserunt exercitation commodo esse reprehenderit et non non ullamco incididunt nulla."
+        },
+        {
+            "id": 10,
+            "partnerid": 10,
+            "partnerfirst": "Debbie",
+            "partnerlast": "Albert",
+            "date": "2/28/2007",
+            "text": "Ad ad mollit ullamco officia nisi."
+        },
+        {
+            "id": 11,
+            "partnerid": 11,
+            "partnerfirst": "Myrna",
+            "partnerlast": "Hewitt",
+            "date": "3/22/2003",
+            "text": "Occaecat eiusmod esse ut laboris magna cupidatat nostrud irure nisi incididunt minim officia occaecat commodo."
+        },
+        {
+            "id": 12,
+            "partnerid": 12,
+            "partnerfirst": "Frye",
+            "partnerlast": "Chapman",
+            "date": "8/9/2002",
+            "text": "Labore deserunt incididunt anim esse velit anim."
+        },
+        {
+            "id": 13,
+            "partnerid": 13,
+            "partnerfirst": "Mcmahon",
+            "partnerlast": "Sanders",
+            "date": "1/22/2007",
+            "text": "Officia sunt do Lorem elit non do fugiat do consequat enim et."
+        }
+    ]
+}

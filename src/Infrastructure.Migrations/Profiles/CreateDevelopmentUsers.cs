@@ -1,5 +1,4 @@
-﻿using Core.Domain.Model.Users;
-using FluentMigrator;
+﻿using FluentMigrator;
 
 namespace Infrastructure.Migrations.Profiles
 {
@@ -13,20 +12,20 @@ namespace Infrastructure.Migrations.Profiles
 
         public override void Up()
         {
-            Insert.IntoTable("User").Row(new
-            {
-                Email = "test1@test.com",
-                Name = "Test User1",
-                Password = HashPassword("password")
-            });
+            //Insert.IntoTable("User").Row(new
+            //{
+            //    Email = "test1@test.com",
+            //    Name = "Test User1",
+            //    Password = HashPassword("password")
+            //});
         }
 
-        protected string HashPassword(string password)
-        {
-            var user = new User();
-            user.Password = password;
-            user.HashPassword();
-            return user.Password;
-        }
+        //protected string HashPassword(string password)
+        //{
+            //var user = new User();
+            //user.Password = password;
+            //user.HashPassword();
+            //return user.Password;
+        //}
     }
 }

@@ -50,8 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MigrationPersistenceSetup.cs" />
+    <Compile Include="Migrations\CreateUserTables.cs" />
     <Compile Include="Profiles\CreateDevelopmentUsers.cs" />
-    <Compile Include="Migrations\CreateUserTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runner\EmptyConnectionStringException.cs" />
     <Compile Include="Runner\MigrationOptions.cs" />

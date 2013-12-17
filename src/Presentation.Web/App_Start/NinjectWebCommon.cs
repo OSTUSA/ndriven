@@ -1,7 +1,6 @@
 using System.Web.Http;
 using Infrastructure.IoC.Migrations;
 using Infrastructure.IoC.NHibernate;
-using Presentation.Web.Services;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(Presentation.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(Presentation.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -63,7 +62,6 @@ namespace Presentation.Web.App_Start
         {
             kernel.Load(new NHibernateModule());
             kernel.Load(new MigrationsModule());
-            kernel.Bind<IAuthenticationService>().To<AuthenticationService>();
         }        
     }
 }

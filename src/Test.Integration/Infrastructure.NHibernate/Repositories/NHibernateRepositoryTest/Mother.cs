@@ -1,4 +1,4 @@
-﻿using Core.Domain.Model.Users;
+﻿using Core.Domain.Model.Partners;
 
 namespace Test.Integration.Infrastructure.NHibernate.Repositories.NHibernateRepositoryTest
 {

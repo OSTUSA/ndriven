@@ -78,7 +78,6 @@
     <Compile Include="Infrastructure.NHibernate\SessionFactoryBuilderTest.cs" />
     <Compile Include="Infrastructure.NHibernate\SingletonInstanceScoperTest.cs" />
     <Compile Include="Presentation.Web\Controllers\Mother.cs" />
-    <Compile Include="Presentation.Web\Controllers\UserControllerTest.cs" />
     <Compile Include="Presentation.Web\Services\AuthenticationServiceTest.cs" />
     <Compile Include="Presentation.Web\Validation\User\Mother.cs" />
     <Compile Include="Presentation.Web\Validation\User\ValidLoginAttributeTest.cs" />

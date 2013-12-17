@@ -39,28 +39,16 @@ namespace Test.Integration.Infrastructure.NHibernate.Repositories.NHibernateRepo
         [Test]
         public void FindBy_should_return_list_of_matching_criteria()
         {
-            SaveUserFixtures();
+            using (var trans = Session.BeginTransaction())
+            {
+                Session.Save(Mother.SimpleUser);
+                Session.Save(Mother.AnotherSimpleUser);
+                trans.Commit();
+            }
+            Session.Clear();
             var found = Repo.FindBy(x => x.Name == "brian");
-            Assert.AreEqual(1, found.Count());
-            Assert.AreEqual("brian", found.ElementAt(0).Name);
-        }
-
-        [Test]
-        public void Query_should_return_IQueryable()
-        {
-            SaveUserFixtures();
-            var query = Repo.Query();
-            var brian = query.First(x => x.Name == "brian");
-            Assert.AreEqual("brian", brian.Name);
-        }
-
-        [Test]
-        public void Query_should_accept_a_predicate()
-        {
-            SaveUserFixtures();
-            var query = Repo.Query(x => x.Name == "brian");
-            var brian = query.First();
-            Assert.AreEqual("brian", brian.Name);
+            Assert.AreEqual(1, found.Count);
+            Assert.AreEqual("brian", found[0].Name);
         }
 
         [Test]
@@ -109,9 +97,9 @@ namespace Test.Integration.Infrastructure.NHibernate.Repositories.NHibernateRepo
             }
             Session.Clear();
             var all = Repo.GetAll();
-            Assert.AreEqual(2, all.Count());
-            Assert.AreEqual("brian", all.ElementAt(0).Name);
-            Assert.AreEqual("scaturro", all.ElementAt(1).Name);
+            Assert.AreEqual(2, all.Count);
+            Assert.AreEqual("brian", all[0].Name);
+            Assert.AreEqual("scaturro", all[1].Name);
         }
 
         [Test]
@@ -141,17 +129,6 @@ namespace Test.Integration.Infrastructure.NHibernate.Repositories.NHibernateRepo
             Repo.Delete(brian);
             var all = Session.Query<User>().ToList();
             Assert.AreEqual(1, all.Count);
-        }
-
-        private void SaveUserFixtures()
-        {
-            using (var trans = Session.BeginTransaction())
-            {
-                Session.Save(Mother.SimpleUser);
-                Session.Save(Mother.AnotherSimpleUser);
-                trans.Commit();
-            }
-            Session.Clear();
         }
     }
 }

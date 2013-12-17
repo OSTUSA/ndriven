@@ -1,0 +1,448 @@
+﻿{
+    "id": 1,
+    "jsonrpc": "2.0",
+    "total": 7,
+    "result": [
+        {
+            "id": 0,
+            "isActive": false,
+            "balance": "$1,890.00",
+            "ssn": 829096358,
+            "age": 28,
+            "firstname": "Chris",
+            "lastname": "Booker",
+            "gender": "female",
+            "datepartner": "29.05.98",
+            "datebirth": "14.05.08",
+            "company": "Genmy",
+            "email": "chrisbooker@genmy.com",
+            "offices": [
+                {
+                    "region": 0,
+                    "name": "Troy",
+                    "number": 216,
+                    "startdate": "11.12.11"
+                },
+                {
+                    "region": 1,
+                    "name": "Belleview",
+                    "number": 906,
+                    "startdate": "19.04.92"
+                },
+                {
+                    "region": 2,
+                    "name": "Rehrersburg",
+                    "number": 841,
+                    "startdate": "19.08.05"
+                }
+            ],
+            "addresses": [
+                {
+                    "phone": "+1 (806) 500-3236",
+                    "fax": "(968) 512-2031",
+                    "setting": false,
+                    "address": "755 Anthony Street",
+                    "state": "New York",
+                    "city": "Rote",
+                    "zip": 5460
+                },
+                {
+                    "phone": "+1 (944) 534-2716",
+                    "fax": "(805) 544-2736",
+                    "setting": true,
+                    "address": "244 Kermit Place",
+                    "state": "Minnesota",
+                    "city": "Chelsea",
+                    "zip": 4216
+                },
+                {
+                    "phone": "+1 (944) 550-2484",
+                    "fax": "(935) 504-2547",
+                    "setting": true,
+                    "address": "863 Vanderveer Place",
+                    "state": "Pennsylvania",
+                    "city": "Kenmar",
+                    "zip": 6930
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "isActive": false,
+            "balance": "$1,912.00",
+            "ssn": 235798691,
+            "age": 38,
+            "firstname": "Helene",
+            "lastname": "Reeves",
+            "gender": "female",
+            "datepartner": "03.02.07",
+            "datebirth": "25.03.03",
+            "company": "Conjurica",
+            "email": "helenereeves@conjurica.com",
+            "offices": [
+                {
+                    "region": 0,
+                    "name": "Stollings",
+                    "number": 255,
+                    "startdate": "05.07.90"
+                },
+                {
+                    "region": 1,
+                    "name": "Springdale",
+                    "number": 124,
+                    "startdate": "22.01.07"
+                },
+                {
+                    "region": 2,
+                    "name": "Mappsville",
+                    "number": 103,
+                    "startdate": "08.06.03"
+                }
+            ],
+            "addresses": [
+                {
+                    "phone": "+1 (809) 434-3369",
+                    "fax": "(857) 441-3298",
+                    "setting": false,
+                    "address": "278 Fulton Street",
+                    "state": "California",
+                    "city": "Sardis",
+                    "zip": 2426
+                },
+                {
+                    "phone": "+1 (932) 537-2646",
+                    "fax": "(956) 492-2444",
+                    "setting": true,
+                    "address": "692 Charles Place",
+                    "state": "Illinois",
+                    "city": "Longoria",
+                    "zip": 815
+                },
+                {
+                    "phone": "+1 (804) 520-2379",
+                    "fax": "(915) 414-3820",
+                    "setting": false,
+                    "address": "302 Bowne Street",
+                    "state": "Maryland",
+                    "city": "Caln",
+                    "zip": 9349
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "isActive": true,
+            "balance": "$2,051.00",
+            "ssn": 404994647,
+            "age": 30,
+            "firstname": "Todd",
+            "lastname": "Best",
+            "gender": "male",
+            "datepartner": "21.02.09",
+            "datebirth": "03.03.04",
+            "company": "Kidgrease",
+            "email": "toddbest@kidgrease.com",
+            "offices": [
+                {
+                    "region": 0,
+                    "name": "Whitmer",
+                    "number": 223,
+                    "startdate": "30.06.13"
+                },
+                {
+                    "region": 1,
+                    "name": "Oley",
+                    "number": 300,
+                    "startdate": "30.04.91"
+                },
+                {
+                    "region": 2,
+                    "name": "Frank",
+                    "number": 783,
+                    "startdate": "06.01.97"
+                }
+            ],
+            "addresses": [
+                {
+                    "phone": "+1 (988) 514-3093",
+                    "fax": "(999) 533-2479",
+                    "setting": false,
+                    "address": "976 Osborn Street",
+                    "state": "Louisiana",
+                    "city": "Conway",
+                    "zip": 1470
+                },
+                {
+                    "phone": "+1 (887) 586-2818",
+                    "fax": "(859) 590-2015",
+                    "setting": true,
+                    "address": "814 Summit Street",
+                    "state": "Nebraska",
+                    "city": "Haring",
+                    "zip": 8343
+                },
+                {
+                    "phone": "+1 (829) 524-2141",
+                    "fax": "(839) 556-2101",
+                    "setting": false,
+                    "address": "514 John Street",
+                    "state": "Georgia",
+                    "city": "Darlington",
+                    "zip": 4652
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "isActive": false,
+            "balance": "$2,966.00",
+            "ssn": 233043627,
+            "age": 20,
+            "firstname": "Myrna",
+            "lastname": "Kirk",
+            "gender": "female",
+            "datepartner": "30.09.89",
+            "datebirth": "04.09.92",
+            "company": "Biospan",
+            "email": "myrnakirk@biospan.com",
+            "offices": [
+                {
+                    "region": 0,
+                    "name": "Chamizal",
+                    "number": 629,
+                    "startdate": "10.05.94"
+                },
+                {
+                    "region": 1,
+                    "name": "Coloma",
+                    "number": 103,
+                    "startdate": "20.10.03"
+                },
+                {
+                    "region": 2,
+                    "name": "Westwood",
+                    "number": 938,
+                    "startdate": "24.01.98"
+                }
+            ],
+            "addresses": [
+                {
+                    "phone": "+1 (833) 486-2658",
+                    "fax": "(918) 519-2984",
+                    "setting": true,
+                    "address": "232 Empire Boulevard",
+                    "state": "Maine",
+                    "city": "Cashtown",
+                    "zip": 3763
+                },
+                {
+                    "phone": "+1 (802) 419-3897",
+                    "fax": "(887) 596-2697",
+                    "setting": true,
+                    "address": "256 Macon Street",
+                    "state": "Idaho",
+                    "city": "Holtville",
+                    "zip": 1028
+                },
+                {
+                    "phone": "+1 (856) 555-2849",
+                    "fax": "(974) 468-3010",
+                    "setting": false,
+                    "address": "406 Java Street",
+                    "state": "Delaware",
+                    "city": "Wheatfields",
+                    "zip": 6930
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "isActive": true,
+            "balance": "$1,318.00",
+            "ssn": 881552379,
+            "age": 38,
+            "firstname": "Riggs",
+            "lastname": "Holland",
+            "gender": "male",
+            "datepartner": "19.05.94",
+            "datebirth": "24.02.95",
+            "company": "Unisure",
+            "email": "riggsholland@unisure.com",
+            "offices": [
+                {
+                    "region": 0,
+                    "name": "Soudan",
+                    "number": 535,
+                    "startdate": "15.06.92"
+                },
+                {
+                    "region": 1,
+                    "name": "Fostoria",
+                    "number": 691,
+                    "startdate": "08.01.06"
+                },
+                {
+                    "region": 2,
+                    "name": "Forestburg",
+                    "number": 325,
+                    "startdate": "06.06.88"
+                }
+            ],
+            "addresses": [
+                {
+                    "phone": "+1 (955) 474-2156",
+                    "fax": "(992) 520-2919",
+                    "setting": true,
+                    "address": "692 Mermaid Avenue",
+                    "state": "Virginia",
+                    "city": "Alamo",
+                    "zip": 7637
+                },
+                {
+                    "phone": "+1 (916) 464-2035",
+                    "fax": "(980) 461-3590",
+                    "setting": true,
+                    "address": "399 Noble Street",
+                    "state": "New Jersey",
+                    "city": "Trucksville",
+                    "zip": 8491
+                },
+                {
+                    "phone": "+1 (964) 557-3279",
+                    "fax": "(925) 594-2244",
+                    "setting": true,
+                    "address": "836 Coles Street",
+                    "state": "Kansas",
+                    "city": "Herbster",
+                    "zip": 1018
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "isActive": true,
+            "balance": "$1,915.00",
+            "ssn": 191749329,
+            "age": 21,
+            "firstname": "Hebert",
+            "lastname": "Sweeney",
+            "gender": "male",
+            "datepartner": "15.07.99",
+            "datebirth": "22.08.10",
+            "company": "Concility",
+            "email": "hebertsweeney@concility.com",
+            "offices": [
+                {
+                    "region": 0,
+                    "name": "Witmer",
+                    "number": 300,
+                    "startdate": "13.01.10"
+                },
+                {
+                    "region": 1,
+                    "name": "Romeville",
+                    "number": 586,
+                    "startdate": "20.01.06"
+                },
+                {
+                    "region": 2,
+                    "name": "Drummond",
+                    "number": 236,
+                    "startdate": "20.01.03"
+                }
+            ],
+            "addresses": [
+                {
+                    "phone": "+1 (846) 554-2288",
+                    "fax": "(815) 446-2228",
+                    "setting": false,
+                    "address": "303 Schaefer Street",
+                    "state": "Nevada",
+                    "city": "Smeltertown",
+                    "zip": 5012
+                },
+                {
+                    "phone": "+1 (940) 515-3717",
+                    "fax": "(976) 550-2508",
+                    "setting": false,
+                    "address": "810 Amber Street",
+                    "state": "Ohio",
+                    "city": "Levant",
+                    "zip": 5751
+                },
+                {
+                    "phone": "+1 (894) 447-3916",
+                    "fax": "(905) 483-3282",
+                    "setting": false,
+                    "address": "240 Oliver Street",
+                    "state": "Alabama",
+                    "city": "Wyoming",
+                    "zip": 4664
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "isActive": false,
+            "balance": "$2,727.00",
+            "ssn": 250907238,
+            "age": 30,
+            "firstname": "Katina",
+            "lastname": "Cole",
+            "gender": "female",
+            "datepartner": "04.05.92",
+            "datebirth": "01.10.08",
+            "company": "Bostonic",
+            "email": "katinacole@bostonic.com",
+            "offices": [
+                {
+                    "region": 0,
+                    "name": "Chical",
+                    "number": 379,
+                    "startdate": "06.06.06"
+                },
+                {
+                    "region": 1,
+                    "name": "Herlong",
+                    "number": 384,
+                    "startdate": "23.01.89"
+                },
+                {
+                    "region": 2,
+                    "name": "Ronco",
+                    "number": 185,
+                    "startdate": "13.05.97"
+                }
+            ],
+            "addresses": [
+                {
+                    "phone": "+1 (948) 554-3474",
+                    "fax": "(833) 432-2102",
+                    "setting": false,
+                    "address": "672 Keap Street",
+                    "state": "Connecticut",
+                    "city": "Worton",
+                    "zip": 3305
+                },
+                {
+                    "phone": "+1 (849) 531-2421",
+                    "fax": "(865) 477-3665",
+                    "setting": false,
+                    "address": "161 Corbin Place",
+                    "state": "North Carolina",
+                    "city": "Tuttle",
+                    "zip": 5307
+                },
+                {
+                    "phone": "+1 (915) 464-2081",
+                    "fax": "(886) 487-3759",
+                    "setting": true,
+                    "address": "183 Union Street",
+                    "state": "West Virginia",
+                    "city": "Brady",
+                    "zip": 9585
+                }
+            ]
+        }
+    ]
+}

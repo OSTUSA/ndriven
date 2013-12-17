@@ -51,9 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\Users\UsersMap.cs" />
     <Compile Include="Repositories\NHibernateRepository.cs" />
     <Compile Include="SessionFactoryAttribute.cs" />
-    <Compile Include="Mapping\Users\UserMap.cs" />
     <Compile Include="SessionFactoryBuilder.cs" />
     <Compile Include="SingletonInstanceScoper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +67,7 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

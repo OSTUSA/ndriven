@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 
 namespace Core.Domain.Model
 {
@@ -11,15 +9,11 @@ namespace Core.Domain.Model
 
         T Load(object id);
 
-        IEnumerable<T> GetAll();
+        List<T> GetAll();
 
-        IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate);
+        List<T> FindBy(Func<T, bool> predicate);
 
         T FindOneBy(Func<T, bool> predicate);
-
-        IQueryable<T> Query();
-
-        IQueryable<T> Query(Expression<Func<T, bool>> predicate); 
 
         void Store(T entity);
 

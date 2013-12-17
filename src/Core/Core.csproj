@@ -45,15 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\Services\IPersistenceSetup.cs" />
+    <Compile Include="Domain\Model\Users\Users.cs" />
     <Compile Include="Domain\Model\EntityBase.cs" />
     <Compile Include="Domain\Model\IEntity.cs" />
     <Compile Include="Domain\Model\IRepository.cs" />
-    <Compile Include="Domain\Model\Users\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

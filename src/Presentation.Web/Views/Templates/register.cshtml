@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Registration</h1>
+        <div class="col-lg-5 col-sm-5 col-5 form form-center well">
+            <form name="registerForm" class="form-horizontal" ng-submit="register()">
+
+                <div class="form-group" ng-class="{error:registerForm.Email.$invalid}">
+                    <label class="col-lg-2 control-label" for="Email">Email: </label>
+                    <div class="col-lg-12">
+                        <input class="form-control" ng-model="Email" type="email" id="Email" name="Email" value="" placeholder="email@address.com" required />
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="{error:registerForm.Name.$invalid}">
+                    <label class="col-lg-2 control-label" for="Name">Name: </label>
+                    <div class="col-lg-12">
+                        <input class="form-control" type="text" ng-model="Name" id="Name" name="Name" value="" placeholder="First Last" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label" for="Password">Password: </label>
+                    <div class="col-lg-12">
+                        <input class="form-control" type="password" ng-model="Password" id="Password" name="Password" value="" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-2">
+                        <button ng-disabled="registerForm.$invalid" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;Register</button>
+                    </div>
+                </div>
+
+                <p>
+                    <a href="/#login">Already have a login? Click here to sign in</a>
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>

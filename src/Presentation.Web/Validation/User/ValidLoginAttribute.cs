@@ -11,9 +11,10 @@ namespace Presentation.Web.Validation.User
         [Inject]
         public override IRepository<CoreUsers.User> Repo { get; set; }
 
-        public ValidLoginAttribute(string message = "") : base(message)
+        public ValidLoginAttribute(string message = "")
+            : base(message)
         {
-            
+
         }
 
         public ValidLoginAttribute()
@@ -33,12 +34,12 @@ namespace Presentation.Web.Validation.User
 
             var user = Repo.FindOneBy(u => u.Email == email);
             var input = context.ObjectInstance as LoginInput;
-            if(user == null || ! user.IsAuthenticated(input.Password))
+            if (user == null || !user.IsAuthenticated(input.Password))
                 return new ValidationResult(Message);
 
             return null;
         }
 
-        
+
     }
 }

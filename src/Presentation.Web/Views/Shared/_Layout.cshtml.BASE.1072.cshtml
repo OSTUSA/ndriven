@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>BDO - Partner Records System</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap-glyphicons.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/select2/select2.css")" rel="stylesheet" type="text/css"/>
+
+    <link href="@Url.Content("~/Content/toastr.css")" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+</head>
+    <body ng-app="app">
+        <div class="modal fade" id="errorModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">There Was An Error</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>Message:</h4>
+                    <p>{{error}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button ng-click="clearError();" class="btn btn-danger">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="container">
+            <div class="row">
+                <div class="navbar navbar navbar-fixed-top" style="box-shadow: 1px 1px 5px;">
+                    <div class="container containernav">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand pull-left" href="/#/dashboard">
+                            <img alt="logo" class="clearfix" src="~/Content/bdo/img/bdoLogoSmall.png">
+                        </a>
+                        <div class="nav-collapse collapse">
+                            <a class="navbar-brand pull-left noMaxWidth" href="/#/dashbaord" style="font-weight: bold;">Partner Records System</a>
+                            <ul class="nav navbar-nav pull-right">
+                                <li class="dropdown">
+                                    <button class="dropdown-toggle btn btn-default navbar-btn" style="margin-top: 8px;" data-toggle="dropdown">Menu <b class="caret"></b></button>
+                                    <ul class="dropdown-menu menu">
+                                        <li><a href="/#dashboard">Dashboard</a></li>
+                                        <li><a href="/#partner">Partner</a></li>
+                                        <li><a href="/#withdrawalChecklist">Withdrawal Checklist</a></li>
+                                        <li><a href="/#newPartnerChecklist">New Partner Checklist</a></li>
+                                        <li><a href="/#partnerwithdrawal">Partner Withdrawal Worksheet</a></li>
+                                        <li><a href="/#clubs">Clubs</a></li>
+                                        <li><a href="/#loans">Loans</a></li>
+                                        <li><a href="/#units">Units</a></li>
+                                        <li><a href="/#notes">Notes</a></li>
+                                        <li><a href="/#unitsEarning">Units & Earning Worksheet</a></li>
+                                        <li><a href="/#history">Account History</a></li>
+                                        <li><a href="/#balance">Account Balance</a></li>
+                                        <li><a href="/#peoplesoft">Peoplesoft Import</a></li>
+                                    <li><a href="/Import/HistoryImport.aspx" target="_blank">Earnings Import</a></li>
+                                    <li>
+                                        <a href="/#exportcsv">Export to CSV</a>    
+                                    </li>
+                                    </ul>
+                                </li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                                <li class="dropdown">
+                                    <button class="dropdown-toggle btn btn-default navbar-btn" style="margin-top: 8px;" data-toggle="dropdown">Reports <b class="caret"></b></button>
+                                    <ul class="dropdown-menu menu">
+                                    <li>
+                                            <a href='@System.Configuration.ConfigurationManager.AppSettings["ReportServerURL"]AllRemindersByDates&rs:Command=Render' target="_blank">Reminders By Dates</a>
+                                    </li>
+                                    <li ng-show="partner">
+                                            <a href='@System.Configuration.ConfigurationManager.AppSettings["ReportServerURL"]RemindersByPartnerId&PartnerId={{partner.Id}}&rs:Command=Render' target="_blank">Reminders For Partner</a>
+                                    </li>
+
+                                    <li ng-show="partner">
+                                            <a href='@System.Configuration.ConfigurationManager.AppSettings["ReportServerURL"]EarningsHistory&PartnerId={{partner.Id}}&rs:Command=Render' target="_blank">Earnings History</a>
+                                    
+                                    </li>
+                                    <li ng-show="partner">
+                                            <a href='@System.Configuration.ConfigurationManager.AppSettings["ReportServerURL"]AccountSummary&PartnerId={{partner.Id}}&rs:Command=Render' target="_blank">Account Summary</a>
+                                    
+                                    </li>
+                                    <li>
+                                        <a href='@System.Configuration.ConfigurationManager.AppSettings["ReportServerURL"]NewPartnerChecklist&rs:Command=Render' target="_blank">New Partner Checklist</a>
+                                    </li>
+                                    <li>
+                                        <a href='@System.Configuration.ConfigurationManager.AppSettings["ReportServerURL"]WithdrawalChecklist&rs:Command=Render' target="_blank">Withdrawal Partner Checklist</a>
+                                    </li>
+                                </ul>
+                                </li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                                <li>
+                                    <button ng-click="$broadcast('event:selectPartnerBtn'); resetPartnerModal()" data-toggle="modal" data-target="#selectPartnerModal" class="btn btn-default navbar-btn" style="margin-top: 8px;">Current Partner: {{partner.FirstName}} {{partner.LastName}} <span class="glyphicon glyphicon-cog"></span></button>
+                                </li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                                <li>
+                                    <button onclick="location.href='/#reminders'" class="btn navbar-btn btn-danger" style="font-weight: bold; margin-top: 8px;"><span class="glyphicon glyphicon-flag">&nbsp;Reminders</span></button>
+                                </li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                                <li>
+                                    <button class="btn navbar-btn btn-success" onclick=" window.location.reload();" style="font-weight: bold; margin-top: 8px;"><span class="glyphicon glyphicon-refresh"></span></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" ng-view>
+        </div>
+
+        <div style="display: none;">
+            @RenderBody()
+        </div>
+        <div class="container" style="border-bottom: 1px solid #999;">
+            <hr />
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-center">BDO &copy; 2013</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" data-backdrop="static" data-keyboard="false" id="selectPartnerModal" ng-controller="partnerSelectctrl">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" ng-click="resetParterSelectModal()" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Select A Partner</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div ng-hide="waiting">
+                            <label>Search:</label>
+                            <input type="text" ng-model="partnerSearch" class="form-control" />
+                            <p class="text-center">
+                                <pagination boundary-links="true"
+                                            total-items="(partnersList | partnerSearchPaging:partnerSearch:getPartnerSelectPage()).length" page="getPartnerSelectPage()" rotate="false" class="pagination-small"
+                                            items-per-page="10" max-size="10" on-select-page="setPartnerSelectPage(page)"
+                                            previous-text="<" next-text=">" first-text="<<" last-text=">>">
+                                </pagination>
+                            </p>
+                            <p>CurrentPage:{{getPartnerSelectPage()}}</p>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Last Name</th>
+                                        <th>First Name</th>
+                                        <th>Partner Number</th>
+                                        <th>Select</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="partner in partnersList | partnerSearchPaging:partnerSearch:getPartnerSelectPage():true">
+                                        <td>{{partner.LastName}}</td>
+                                        <td>{{partner.FirstName}}</td>
+                                        <td>{{partner.Id}}</td>
+                                        <td><a ng-click="setPartner(partner)" class="btn btn-small btn-default" data-dismiss="modal">Select</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div ng-show="waiting">
+                            <h2 class="text-primary">Loading Partners...</h2>
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="btn btn-default" ng-click="resetParterSelectModal()" data-dismiss="modal">Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        @Scripts.Render("~/bundles/angular")
+        <script src="@Url.Content("~/Scripts/ui-bootstrap-tpls-0.6.0.js")"></script>
+        <script src="@Url.Content("~/Scripts/select2/select2.js")"></script>
+        <script src="@Url.Content("~/Scripts/select2/ui-select2.js")"></script>
+        <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+        <script src="@Url.Content("~/Scripts/toastr.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/app.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/services/services.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/filters/filters.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/directives/directives.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/dashboardctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/partnerctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/partnerwithdrawalctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/loanctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/clubctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/unitctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/notesctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/adminctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/withdrawalchecklistctr.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/newpartnerchecklistctr.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/unitEarningctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/accountctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/remindersctrl.js")"></script>
+        <script src="@Url.Content("~/Scripts/app/controllers/partnerSelectctrl.js")"></script>
+
+
+
+        @RenderSection("scripts", required: false)
+
+        <script src="@Url.Content("~/Scripts/angular-ui.js")"></script>
+        <script src="@Url.Content("~/Scripts/tinymce/tiny_mce.js")"></script>
+        <script src="@Url.Content("~/Scripts/tinymce/jquery.tinymce.js")"></script>
+
+    
+
+    </body>
+</html>

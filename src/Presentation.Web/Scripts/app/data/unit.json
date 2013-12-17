@@ -1,0 +1,23 @@
+﻿{
+    "id": 1,
+    "jsonrpc": "2.0",
+    "total": 1,
+    "result": [
+        {
+            "id": 0,
+            "isActive": true,
+            "beginningfiscalyear": 12,
+            "annualized": 9,
+            "todatefiscalyear": 24,
+            "earningscashbudget": "$1,926.00",
+            "earningsaccrualbudget": "$3,331.00",
+            "earningsfixedincome": "$2,966.00",
+            "earningsguarantees": "$3,638.00",
+            "monthlydrawtosetdate": "$1,508.00",
+            "monthlydrawcurrent": "$1,996.00",
+            "monthlydrawdeductions": "$1,085.00",
+            "unitvaluecashbudget": 30,
+            "unitvalueaccrualbudget": 15
+        }
+    ]
+}
