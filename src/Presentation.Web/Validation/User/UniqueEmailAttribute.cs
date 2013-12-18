@@ -8,9 +8,6 @@ namespace Presentation.Web.Validation.User
 {
     public class UniqueEmailAttribute : UserValidationAttributeBase
     {
-        [Inject]
-        public override IRepository<CoreUsers.User> Repo { get; set; }
-
         public UniqueEmailAttribute(string message = "")
             : base(message)
         {

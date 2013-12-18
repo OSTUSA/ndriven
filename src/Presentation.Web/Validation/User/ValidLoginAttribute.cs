@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using Core.Domain.Model;
 using CoreUsers = Core.Domain.Model.Users;
 using Ninject;
@@ -8,13 +9,10 @@ namespace Presentation.Web.Validation.User
 {
     public class ValidLoginAttribute : UserValidationAttributeBase
     {
-        [Inject]
-        public override IRepository<CoreUsers.User> Repo { get; set; }
-
         public ValidLoginAttribute(string message = "")
             : base(message)
         {
-
+            
         }
 
         public ValidLoginAttribute()
@@ -30,6 +28,7 @@ namespace Presentation.Web.Validation.User
 
         protected ValidationResult GetValidationResult(string email, ValidationContext context)
         {
+
             if (string.IsNullOrEmpty(email)) return null;
 
             var user = Repo.FindOneBy(u => u.Email == email);
