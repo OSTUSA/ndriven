@@ -15,13 +15,16 @@ namespace Infrastructure.EntityFramework
         {
             // Stop EF from changing our database, we'll do it with Fluent Migrator
             Database.SetInitializer<EntityContext>(null);
+
             // Turn off auto detection of changes for performance increase
             // we're manually setting the entity to modified on updates anyway
             Configuration.AutoDetectChangesEnabled = false;
+
+            // Turn off lazy loading for performance increase, use eager loading - .Include()
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
 
-            // Set schema (table namespace) based on web.configa
+            // Set schema (table namespace) based on web.config (default is "")
             // Example: Portal.Users instead of just Users
             _defaultSchema = ConfigurationManager.AppSettings["DefaultSchema"];
             

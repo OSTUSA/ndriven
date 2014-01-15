@@ -22,6 +22,8 @@ namespace Infrastructure.EntityFramework.Repositories
         #region GET METHODS
 
         // Override the GetPage function to filter out deleted items
+        // TODO : Should this be "new"?
+        //public new IQueryable<T> GetPage(PageParams<T> pageParams)
         public IQueryable<T> GetPage(PageParams<T> pageParams)
         {
             // Start up the query
