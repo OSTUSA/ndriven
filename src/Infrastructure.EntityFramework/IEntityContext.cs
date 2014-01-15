@@ -3,8 +3,9 @@ using Core.Domain.Model.Users;
 
 namespace Infrastructure.EntityFramework
 {
+    // TODO : This may be deprecated at this point
     public interface IEntityContext
     {
-        DbSet<User> Users { get; set; }
+        
     }
 }

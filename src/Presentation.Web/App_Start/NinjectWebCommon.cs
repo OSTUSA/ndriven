@@ -64,6 +64,7 @@ namespace Presentation.Web.App_Start
         {
             // Comment this line if using Entity Framework instead of NHibernate
             kernel.Load(new NHibernateModule());
+
             // Uncomment this module to use Entity Framework instead of NHibernate
             //kernel.Load(new EntityFrameworkModule()); 
 

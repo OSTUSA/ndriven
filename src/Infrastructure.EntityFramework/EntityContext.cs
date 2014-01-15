@@ -1,5 +1,4 @@
 ﻿using System;
-using Core.Domain.Model.Users;
 using System.Configuration;
 using System.Data.Entity;
 using Infrastructure.EntityFramework.Mapping.Users;
@@ -10,6 +9,8 @@ namespace Infrastructure.EntityFramework
     public class EntityContext : DbContext, IEntityContext
     {
         private readonly string _defaultSchema;
+
+        #region CTOR
 
         public EntityContext(string connectionString) : base(connectionString)
         {
@@ -32,8 +33,7 @@ namespace Infrastructure.EntityFramework
                 throw new ApplicationException("Default schema not set in Web.Config!");
         }
 
-        public DbSet<User> Users { get; set; }
-        
+        #endregion
 
         #region Context Overrides
 
