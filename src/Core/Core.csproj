@@ -45,9 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\Services\IPersistenceSetup.cs" />
+    <Compile Include="Domain\Model\AuditableEntityBase.cs" />
     <Compile Include="Domain\Model\EntityBase.cs" />
+    <Compile Include="Domain\Model\IAuditableEntity.cs" />
+    <Compile Include="Domain\Model\IAuditableRepository.cs" />
     <Compile Include="Domain\Model\IEntity.cs" />
     <Compile Include="Domain\Model\IRepository.cs" />
+    <Compile Include="Domain\Model\Pagination\PageParams.cs" />
     <Compile Include="Domain\Model\Users\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
