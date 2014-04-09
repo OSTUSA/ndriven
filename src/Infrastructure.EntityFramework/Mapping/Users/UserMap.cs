@@ -16,15 +16,15 @@ namespace Infrastructure.EntityFramework.Mapping.Users
             //===========================================
 
             // Many to one navigation property
-            //HasMany(x => x.Ingredients)
-            //    .WithRequired(y => y.Formula)
-            //    .HasForeignKey(y => y.FormulaId);
+            //HasMany(x => x.Employees)
+            //    .WithRequired(y => y.Manager)
+            //    .HasForeignKey(y => y.ManagerId);
 
             // Set precision of decimals, or EF will truncate at two decimals
-            //Property(x => x.SpecificGravity).HasPrecision(16, 6);
+            //Property(x => x.SomeNumber).HasPrecision(16, 6);
             
             // If there are helper properties on the model, ignore them here
-            //Ignore(x => x.MeasureUnits);
+            //Ignore(x => x.PropertyToIgnore);
         }
     }
 }

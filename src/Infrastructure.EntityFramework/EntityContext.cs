@@ -25,7 +25,7 @@ namespace Infrastructure.EntityFramework
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
 
-            // Set schema (table namespace) based on web.config (default is "")
+            // Set schema (table namespace) based on web.config
             // Example: Portal.Users instead of just Users
             _defaultSchema = ConfigurationManager.AppSettings["DefaultSchema"];
             

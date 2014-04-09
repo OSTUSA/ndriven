@@ -12,16 +12,18 @@ namespace Infrastructure.EntityFramework.Repositories
 {
     public class EfRepository<T> : IRepository<T> where T : class, IEntity<T>
     {
-        protected readonly EntityContext _context;
+        protected readonly EntityContext EntityContext;
 
-        protected readonly DbSet<T> _entities;
+        protected readonly DbSet<T> Entities;
 
         #region CTOR
 
         public EfRepository(IEntityContext context)
         {
-            _context = context as EntityContext;
-            _entities = _context.Set<T>();
+            EntityContext = context as EntityContext;
+
+            if (EntityContext != null) 
+                Entities = EntityContext.Set<T>();
         }
 
         #endregion
@@ -30,34 +32,32 @@ namespace Infrastructure.EntityFramework.Repositories
 
         public T Get(object id)
         {
-            return _entities.Find(id);
+            return Entities.Find(id);
         }
 
         // Returns a proxy
         public T Load(object id)
         {
-            // TODO : Still not sure what the EF equivelant of this is
-            // In EF, to eager load you'd use .Insert()
+            // TODO : Not sure what the EF equivelant of this is
+            // If I understand this correctly (as nHibernate uses it), EF uses .Include() instead
             throw new NotImplementedException();
         }
 
         public EntityContext Context
         {
-            get { return _context; }
+            get { return EntityContext; }
         }
 
-        // TODO : Issue here with EF? I think this will pull all records
-        // In EF this should be an IQueryable<> to avoid pulling the whole table before adding filters
+        // Warning! This pulls the ENTIRE table
         public IEnumerable<T> GetAll()
         {
-            return _entities; 
+            return Entities; 
         }
 
-        // TODO : include in ndriven?
         public IQueryable<T> GetPage(PageParams<T> pageParams)
         {
             // Start up the query
-            var query = GetAll().AsQueryable();
+            var query = Query();
 
             // Then filter if needed
             if (pageParams.SearchPredicate != null)
@@ -75,41 +75,47 @@ namespace Infrastructure.EntityFramework.Repositories
 
         public IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
-            return _entities.Where(predicate).AsEnumerable();
+            return Query(predicate).AsEnumerable();
         }
 
         public T FindOneBy(Func<T, bool> predicate)
         {
-            return _entities.FirstOrDefault(predicate);
+            return Entities.FirstOrDefault(predicate);
         }
 
         public IQueryable<T> Query()
         {
-            return _entities.AsQueryable();
+            return Entities.AsQueryable().AsNoTracking();
         }
 
         public IQueryable<T> Query(Expression<Func<T, bool>> predicate)
         {
-            return _entities.Where(predicate);
+            return Entities.Where(predicate);
         }
 
         #endregion
 
         #region Write Methods
 
-        public void Store(T entity)
+        // Store without commit - for storing lists
+        protected void AppendStore(T entity)
         {
             // If the entity is new
             if (entity.IsNew())
             {
                 // Add it to the set
-                _entities.Add(entity);
+                Entities.Add(entity);
             }
             else
             {
                 // Set the modified state
-                _context.Entry(entity).State = EntityState.Modified;
+                EntityContext.Entry(entity).State = EntityState.Modified;
             }
+        }
+
+        public void Store(T entity)
+        {
+            AppendStore(entity);
 
             // Commit the changes
             Save();
@@ -117,7 +123,8 @@ namespace Infrastructure.EntityFramework.Repositories
 
         public void StoreMany(List<T> list)
         {
-            _entities.AddRange(list);
+            foreach (var item in list)
+                AppendStore(item);
 
             // Commit the changes
             Save();
@@ -125,7 +132,7 @@ namespace Infrastructure.EntityFramework.Repositories
 
         public void Delete(T entity)
         {
-            _entities.Remove(entity);
+            Entities.Remove(entity);
             
             // Commit the changes
             Save();
@@ -133,7 +140,7 @@ namespace Infrastructure.EntityFramework.Repositories
 
         public void DeleteMany(List<T> list)
         {
-            _entities.RemoveRange(list);
+            Entities.RemoveRange(list);
 
             // Commit the changes
             Save();
@@ -141,7 +148,7 @@ namespace Infrastructure.EntityFramework.Repositories
 
         protected void Save()
         {
-            _context.SaveChanges();
+            EntityContext.SaveChanges();
         }
 
         #endregion

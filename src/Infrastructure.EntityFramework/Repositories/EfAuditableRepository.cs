@@ -21,21 +21,13 @@ namespace Infrastructure.EntityFramework.Repositories
 
         #region GET METHODS
 
-        // Override the GetPage function to filter out deleted items
-        // TODO : Should this be "new"?
-        //public new IQueryable<T> GetPage(PageParams<T> pageParams)
+        // Override / hide the GetPage function to filter out deleted items
         public IQueryable<T> GetPage(PageParams<T> pageParams)
         {
-            // Start up the query
-            var query = _entities.AsQueryable();
+            // Start up the query with tracking off
+            var query = GetAllByAudit(pageParams.ShowDeleted, pageParams.ShowArchived);
 
-            if (!pageParams.ShowDeleted)
-                query = query.Where(x => x.DeletedOn == default(DateTime) && x.DeletedBy == string.Empty);
-
-            if (!pageParams.ShowArchived)
-                query = query.Where(x => x.ArchivedOn == default(DateTime) && x.ArchivedBy == string.Empty);
-
-            // Then filter if needed
+            // Filter if needed
             if (pageParams.SearchPredicate != null)
                 query = query.Where(pageParams.SearchPredicate);
 
@@ -48,6 +40,19 @@ namespace Infrastructure.EntityFramework.Repositories
             // Return the page set of records
             return query.Skip(pageParams.Count * (pageParams.Page - 1)).Take(pageParams.Count);
         }
+
+        public IQueryable<T> GetAllByAudit(bool includeDeleted, bool includeArchived)
+        {
+            var query = Query();
+
+            if (!includeDeleted)
+                query = query.Where(x => x.DeletedOn == default(DateTime) && x.DeletedBy == string.Empty);
+
+            if (!includeArchived)
+                query = query.Where(x => x.ArchivedOn == default(DateTime) && x.ArchivedBy == string.Empty);
+
+            return query;
+        } 
 
         #endregion
 
@@ -80,7 +85,7 @@ namespace Infrastructure.EntityFramework.Repositories
             entity.UpdatedOn = dateSnap;
 
             // Set the modified state
-            _context.Entry(entity).State = EntityState.Modified;
+            EntityContext.Entry(entity).State = EntityState.Modified;
 
             Save();
         }
@@ -112,7 +117,7 @@ namespace Infrastructure.EntityFramework.Repositories
             entity.UpdatedOn = dateSnap;
 
             // Set the modified state
-            _context.Entry(entity).State = EntityState.Modified;
+            EntityContext.Entry(entity).State = EntityState.Modified;
 
             Save();
         }
@@ -135,7 +140,7 @@ namespace Infrastructure.EntityFramework.Repositories
                 entity.UpdatedOn = entity.ArchivedOn = entity.DeletedOn = default(DateTime);
 
                 // Add it to the set
-                _entities.Add(entity);
+                Entities.Add(entity);
             }
             else
             {
@@ -144,7 +149,7 @@ namespace Infrastructure.EntityFramework.Repositories
                 entity.UpdatedOn = DateTime.Now;
 
                 // Set the modified state
-                _context.Entry(entity).State = EntityState.Modified;
+                EntityContext.Entry(entity).State = EntityState.Modified;
             }
 
             // Commit the changes
