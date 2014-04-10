@@ -1,4 +1,5 @@
 using System.Web.Http;
+using Infrastructure.IoC.EntityFramework;
 using Infrastructure.IoC.Migrations;
 using Infrastructure.IoC.NHibernate;
 using Presentation.Web.Services;
@@ -61,7 +62,12 @@ namespace Presentation.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            // Comment this line if using Entity Framework instead of NHibernate
             kernel.Load(new NHibernateModule());
+
+            // Uncomment this module to use Entity Framework instead of NHibernate
+            //kernel.Load(new EntityFrameworkModule()); 
+
             kernel.Load(new MigrationsModule());
             kernel.Bind<IAuthenticationService>().To<AuthenticationService>();
         }        

@@ -6,5 +6,6 @@ namespace Infrastructure.Migrations.Runner
     {
         public bool PreviewOnly { get; set; }
         public int Timeout { get; set; }
+        public string ProviderSwitches { get; private set; }
     }
 }

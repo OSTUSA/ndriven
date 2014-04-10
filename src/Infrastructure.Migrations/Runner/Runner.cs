@@ -37,7 +37,9 @@ namespace Infrastructure.Migrations.Runner
             if(string.IsNullOrEmpty(ConnectionString))
                 throw new EmptyConnectionStringException("ConnectionString property not initialized");
             var options = new MigrationOptions() {PreviewOnly = false, Timeout = 60};
-            var factory = new FluentMigrator.Runner.Processors.SqlServer.SqlServer2008ProcessorFactory();
+            //var factory = new FluentMigrator.Runner.Processors.SqlServer.SqlServer2008ProcessorFactory();
+            //var factory = new FluentMigrator.Runner.Processors.SqlServer.SqlServer2012ProcessorFactory();
+            var factory = new FluentMigrator.Runner.Processors.SqlServer.SqlServerProcessorFactory();
             var processor = factory.Create(ConnectionString, Announcer, options);
             var assembly = Assembly.GetExecutingAssembly();
             var runner = new MigrationRunner(assembly, GetMigrationContext(version, profile), processor);
